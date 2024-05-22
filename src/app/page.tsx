@@ -1,15 +1,12 @@
-import Association from "@/components/Association";
 import Design from "@/components/Bussiness/Design";
-import CompanyIntro from "@/components/CompanyIntro";
+import Comment from "@/components/Comments/Comment";
+
 import Company from "@/components/CompanyIntro/Company";
 import Finance from "@/components/Finance/Finance";
+import Footer from "@/components/Footer/Footer";
 
-import GraphContainer from "@/components/GraphContainer";
-import Intro from "@/components/Intro";
 import Introduction from "@/components/Introdution/Introduction";
-import Lottery from "@/components/Lottery";
-import Status from "@/components/Status";
-import Image from "next/image";
+
 import React from "react";
 
 const page = () => {
@@ -26,6 +23,12 @@ const page = () => {
       </div>
       <div className="absolute w-screen h-screen top-[530%]">
         <Finance />
+      </div>
+      <div className="absolute w-screen h-screen top-[780%]">
+        <Comment />
+      </div>
+      <div className="absolute w-screen h-[140%] pb-[100px] top-[950%]">
+        <Footer />
       </div>
     </div>
   );

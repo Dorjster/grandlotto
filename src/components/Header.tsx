@@ -1,6 +1,28 @@
 import Image from "next/image";
 import React from "react";
 
+type navigationItem = {
+  label: string;
+};
+
+const navigationItems: navigationItem[] = [
+  {
+    label: "Танилцуулга",
+  },
+  {
+    label: "Загвар",
+  },
+  {
+    label: "Зах зээл",
+  },
+  {
+    label: "Сэтгэгдэл",
+  },
+  {
+    label: "Захиалга",
+  },
+];
+
 const Header = () => {
   return (
     <div className="w-full backdrop-opacity-95  bg-white/90 fixed top-0 z-20 flex items-center justify-between pr-[30px]">
