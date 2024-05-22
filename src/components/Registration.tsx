@@ -67,6 +67,9 @@ const Registration = () => {
   });
   return (
     <>
+      <header className="text-[10px] text-center py-[8px]">
+        ГРАНД СИСТЕМС ХУВЬЦААНЫ УРЬДЧИЛСАН БҮРТГЭЛ
+      </header>
       <form
         id="emailContent"
         onSubmit={(event) => {
@@ -135,7 +138,7 @@ const Registration = () => {
           ) : null}
         </div>
 
-        <div className="mb-4 flex items-center absolute top-[58%]">
+        <div className="mb-4 flex items-center absolute top-[60%]">
           <input
             id="isChecked"
             name="isChecked"
@@ -149,7 +152,7 @@ const Registration = () => {
         </div>
 
         {formik.values.isChecked && (
-          <div className="flex flex-col mb-4 absolute top-[61%]">
+          <div className="flex flex-col mb-4 absolute top-[63%]">
             <label htmlFor="company" className="text-[13px]">
               Компаны нэр
             </label>

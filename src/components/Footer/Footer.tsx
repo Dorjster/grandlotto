@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="bg-white shadow-2xl w-full md:w-[60%] md:left-[5%] absolute top-[83%] z-10 rounded-[15px] px-[5%] md:px-[100px] py-10 md:py-20">
             <Contact />
           </div>
-          <div className="bg-[#27438C] shadow-2xl w-full md:w-[60%] md:left-[5%] absolute top-[420%] md:top-[155%] z-0 rounded-[15px] px-5 md:px-10 py-8 md:py-14">
+          <div className="bg-[#27438C] shadow-2xl w-full md:w-[60%] md:left-[5%] absolute top-[420%] md:top-[162%] z-0 rounded-[15px] px-5 md:px-10 py-8 md:py-14">
             <Instruction />
           </div>
         </div>
