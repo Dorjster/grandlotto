@@ -27,7 +27,7 @@ const Footer = () => {
             <Instruction />
           </div>
         </div>
-        <div className="bg-white h-[128%] shadow-xl w-full md:w-[25%] md:left-[68%] absolute top-[83%] z-10 rounded-[15px] px-[5%] md:px-[30px] py-4 md:py-4">
+        <div className="bg-white  shadow-xl w-full md:w-[25%] md:left-[68%] absolute top-[685%] md:top-[83%] z-10 rounded-[15px] px-[5%] md:px-[30px] py-4 md:py-4">
           <Registration />
         </div>
       </div>

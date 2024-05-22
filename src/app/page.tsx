@@ -73,7 +73,7 @@ const Page = () => {
         <Comment />
       </div>
       <div
-        className="absolute w-screen h-[140%] pb-[100px] top-[1230%] md:top-[980%]"
+        className="absolute w-screen h-[180%] md:h-[140%] pb-[100px] top-[1230%] md:top-[980%]"
         ref={footerRef}
       >
         <Footer />
