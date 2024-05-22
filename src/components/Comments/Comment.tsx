@@ -4,34 +4,34 @@ import Image from "next/image";
 
 const Comment = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-[50px]">
-      <div className="text-[#27438C] text-[21px] font-[600]">
-        Оролцогч талуудын{" "}
-        <span className="text-[#1DAFEC] ml-[5px]">сэтгэгдэл</span>
+    <div className="w-full flex flex-col items-center justify-center gap-10 md:gap-20 lg:gap-32">
+      <div className="text-[#27438C] text-2xl md:text-3xl font-semibold">
+        Оролцогч талуудын <span className="text-[#1DAFEC] ml-1">сэтгэгдэл</span>
       </div>
-      <div className="mt-4 flex flex-col items-center gap-[50px] ">
+      <div className="mt-4 w-full flex flex-col items-center gap-10 md:gap-20">
         {Comments.map((el, index) => (
           <div
             key={index}
-            className={`flex w-[80%] bg-white gap-[50px] shadow-xl rounded-[14px] overflow-hidden
-            ${index % 2 === 1 ? "flex-row-reverse" : " "}`}
+            className={`w-[100%] md:w-[80%] flex flex-col md:flex-row bg-white shadow-xl overflow-hidden ${
+              index % 2 === 1
+                ? "md:flex-row-reverse rounded-bl-[14px] rounded-tl-[14px] rounded-tr-[14px] md:rounded-br-[14px] md:rounded-tr-[0px]"
+                : "rounded-bl-[14px] rounded-tr-[14px] rounded-tl-[14px] md:rounded-br-[14px] md:rounded-tl-[14px]"
+            }`}
           >
-            <div className="relative w-[50%]">
+            <div className="relative w-full md:w-1/2">
               <Image
                 src={el.bgImage}
                 alt="background image"
                 width={560}
                 height={560}
-                className={`w-full h-auto saturate-200  `}
+                className="w-full h-auto"
               />
               <div
-                className={`absolute top-0 left-0 right-0 bottom-0 bg-[#1c2f80]/85 flex items-center justify-center 
-                ${
+                className={`absolute inset-0 bg-[#1c2f80]/85 flex items-center justify-center ${
                   index % 2 === 1
-                    ? "rounded-tr-[14px] rounded-br-[14px]"
-                    : "rounded-bl-[14px] rounded-tl-[14px]"
-                }
-                `}
+                    ? "rounded-br-[0px] rounded-tr-[0px] md:rounded-br-[14px] md:rounded-tr-[14px]"
+                    : "rounded-bl-[0px] rounded-tl-[0px] md:rounded-bl-[14px] md:rounded-tl-[14px]"
+                }`}
               >
                 <Image
                   src={el.icon}
@@ -42,15 +42,15 @@ const Comment = () => {
                 />
               </div>
             </div>
-            <div className="py-4 w-[40%] flex flex-col gap-[50px] justify-center ">
-              <p className="text-[#27438C] text-[16px] font-[500]">
+            <div className="p-4 w-full md:w-[50%] md:gap-[25px] flex flex-col justify-center">
+              <p className="text-[#27438C] text-lg font-semibold mb-2">
                 {el.title}
               </p>
-              <p className="text-sm text-black">{el.description}</p>
-              <p className="text-sm text-black">{el.des1}</p>
-              <div>
-                <p className="text-sm text-black font-[700]">{el.author}</p>
-                <p className="text-sm text-[#808080]">{el.status}</p>
+              <p className="text-sm text-black mb-2">{el.description}</p>
+              <p className="text-sm text-black mb-2">{el.des1}</p>
+              <div className="flex md:flex flex-col items-start ">
+                <p className="text-sm text-black font-semibold">{el.author}</p>
+                <p className="text-sm text-[#808080] ">{el.status}</p>
               </div>
             </div>
           </div>

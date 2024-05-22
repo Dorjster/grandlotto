@@ -17,7 +17,7 @@ const Design = () => {
         className="w-full "
       />
       <div className=" flex justify-center items-center ">
-        <div className="bg-white shadow-2xl w-[70%] absolute top-[83%] z-10 rounded-[15px] p-20">
+        <div className="bg-white shadow-2xl w-[100%] md:w-[70%] absolute top-[83%] z-10 rounded-[15px] p-4 md:p-20">
           {" "}
           <CompanyIntro
             h1="Бизнес"
@@ -26,7 +26,7 @@ const Design = () => {
             p2="Тэгвэл Компани нь өөрсдийн хуримтлуулсан туршлага, програм хангамж дээрээ үндэслэн дэлхий жишигт нийцсэн шинэлэг сонирхолтой сугалаануудыг Монголд нэвтрүүлж, нутагшуулж ажиллахаар зорьж байна. "
           />
         </div>
-        <div className="bg-[#27438C] shadow-2xl w-[70%] absolute top-[160%] z-0 rounded-[15px] px-10 py-14">
+        <div className="bg-[#27438C] shadow-2xl w-[100%] md:w-[70%] absolute top-[400%] md:top-[160%] z-0 rounded-[15px] px-10 py-14">
           <Designe />
         </div>
       </div>

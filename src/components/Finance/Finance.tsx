@@ -14,7 +14,7 @@ const Finance = () => {
         className="w-full "
       />
       <div className=" flex justify-center items-center ">
-        <div className="bg-white shadow-2xl w-[70%] absolute top-[83%] z-10 rounded-[15px] p-20">
+        <div className="bg-white shadow-2xl w-[100%] md:w-[70%] absolute top-[83%] z-10 rounded-[15px] p-4 md:p-20">
           {" "}
           <CompanyIntro
             h1="Зах"
@@ -23,7 +23,7 @@ const Finance = () => {
             p2=""
           />
         </div>
-        <div className="  w-[70%] absolute top-[140%] z-0 rounded-[15px] px-10 py-12">
+        <div className="  w-[100%] md:w-[70%] absolute top-[230%] md:top-[140%] z-0 rounded-[15px] px-1 md:px-10 py-12">
           <Plan />
         </div>
       </div>
