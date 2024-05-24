@@ -1,8 +1,7 @@
-import React from "react";
-import { Graphs } from "./_db";
-import BarChart from "./Graph";
+import { Graphs } from './_db';
+import BarChart from './Graph';
 
-const GraphContainer: React.FC = () => {
+const GraphContainer = () => {
   return (
     <div className='w-full flex flex-col gap-[34px]'>
       <div className='flex justify-between items-center'>

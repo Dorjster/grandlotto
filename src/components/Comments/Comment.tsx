@@ -1,6 +1,5 @@
-import React from "react";
-import { Comments } from "../_db";
-import Image from "next/image";
+import { Comments } from '../_db';
+import Image from 'next/image';
 
 const Comment = () => {
   return (

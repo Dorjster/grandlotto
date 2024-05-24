@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+
 import { Statuss } from "./_db";
 
 const Status = () => {

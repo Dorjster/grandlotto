@@ -1,7 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import CompanyIntro from "../CompanyIntro";
-import Plan from "./Plan";
+import Image from 'next/image';
+import CompanyIntro from '../CompanyIntro';
+import Plan from './Plan';
 
 const Finance = () => {
   return (

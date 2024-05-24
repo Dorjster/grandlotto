@@ -1,12 +1,11 @@
-import Image from "next/image";
-import React from "react";
-import CompanyIntro from "../CompanyIntro";
-import Association from "../Association";
-import Lottery from "../Lottery";
-import GraphContainer from "../GraphContainer";
-import Contact from "./Contact";
-import Instruction from "./Instruction";
-import Registration from "../Registration";
+import Image from 'next/image';
+import CompanyIntro from '../CompanyIntro';
+import Association from '../Association';
+import Lottery from '../Lottery';
+import GraphContainer from '../GraphContainer';
+import Contact from './Contact';
+import Instruction from './Instruction';
+import Registration from '../Registration';
 
 const Footer = () => {
   return (

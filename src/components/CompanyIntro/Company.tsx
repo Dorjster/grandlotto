@@ -1,9 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import CompanyIntro from "../CompanyIntro";
-import Association from "../Association";
-import Lottery from "../Lottery";
-import GraphContainer from "../GraphContainer";
+import Image from 'next/image';
+import CompanyIntro from '../CompanyIntro';
+import Association from '../Association';
+import Lottery from '../Lottery';
+import GraphContainer from '../GraphContainer';
 
 const Company = () => {
   return (

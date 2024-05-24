@@ -1,6 +1,5 @@
-import React from "react";
-import { Lotteries } from "./_db";
-import Image from "next/image";
+import { Lotteries } from './_db';
+import Image from 'next/image';
 
 const Lottery = () => {
   return (

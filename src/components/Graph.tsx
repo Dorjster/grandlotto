@@ -1,6 +1,5 @@
-"use client";
-import React from "react";
-import { Bar } from "react-chartjs-2";
+'use client';
+import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,8 +7,8 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
-} from "chart.js";
+  Legend
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
@@ -26,7 +25,7 @@ interface BarChartProps {
   data: number[];
 }
 
-const BarChart: React.FC<BarChartProps> = ({ title, labels, data }) => {
+const BarChart = ({ title, labels, data }: BarChartProps) => {
   const chartData = {
     labels: labels,
     datasets: [
@@ -34,17 +33,17 @@ const BarChart: React.FC<BarChartProps> = ({ title, labels, data }) => {
         label: title,
         data: data,
         barThickness: 12,
-        backgroundColor: "#27438C",
-      },
-    ],
+        backgroundColor: '#27438C'
+      }
+    ]
   };
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: "top" as const,
-      },
+        position: 'top' as const
+      }
     },
     scales: {
       y: {
@@ -53,26 +52,26 @@ const BarChart: React.FC<BarChartProps> = ({ title, labels, data }) => {
           text: title,
 
           font: {
-            size: 16,
+            size: 16
           },
-          color: "#27438C",
+          color: '#27438C'
         },
         beginAtZero: true,
         display: true,
 
         grid: {
-          display: false,
+          display: false
         },
         ticks: {
-          display: false,
-        },
+          display: false
+        }
       },
       x: {
         grid: {
-          display: false,
-        },
-      },
-    },
+          display: false
+        }
+      }
+    }
   };
 
   return <Bar data={chartData} options={options} />;

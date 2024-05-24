@@ -1,9 +1,8 @@
-import React from "react";
-import { useFormik } from "formik";
+import { useFormik } from 'formik';
 // import emailjs from "emailjs-com";
-import * as Yup from "yup";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface FormValues {
   surName: string;

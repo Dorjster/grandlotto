@@ -1,5 +1,4 @@
-import React from "react";
-import { Contacts } from "../_db";
+import { Contacts } from '../_db';
 
 const Contact = () => {
   return (

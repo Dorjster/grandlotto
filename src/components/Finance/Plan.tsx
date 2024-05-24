@@ -1,6 +1,5 @@
-import React from "react";
-import { Plans } from "../_db";
-import Image from "next/image";
+import { Plans } from '../_db';
+import Image from 'next/image';
 
 const Plan = () => {
   return (
