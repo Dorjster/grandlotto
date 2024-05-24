@@ -1,7 +1,5 @@
 import { google } from "googleapis";
 import { NextApiRequest, NextApiResponse } from "next";
-const id = process.env.GOOGLE_SHEET_ID;
-console.log(id);
 
 type SheetForm = {
   surName: string;
