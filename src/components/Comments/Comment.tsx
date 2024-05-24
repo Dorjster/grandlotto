@@ -21,9 +21,6 @@ const Comment = () => {
               <Image
                 src={el.bgImage}
                 alt="background image"
-                // layout={isMedium ? "fill" : "responsive"}
-                // width={isMedium ? 560 : undefined}
-                // height={isMedium ? 560 : undefined}
                 width={560}
                 height={560}
                 className="w-full h-auto md:object-cover"

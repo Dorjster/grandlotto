@@ -48,7 +48,7 @@ const Registration = () => {
     onSubmit: async (values) => {
       try {
         setIsSubmitting(true);
-        await fetch("/api/submit", {
+        const response = await fetch("/api/submit", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -56,21 +56,34 @@ const Registration = () => {
           },
           body: JSON.stringify(values),
         });
-        toast.success("Амжилттай илгээгдлээ!", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        formik.resetForm();
-      } catch (error) {
+        if (response.ok === true) {
+          toast.success("Амжилттай илгээгдлээ!", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          formik.resetForm();
+        } else {
+          toast.error("Илгээхэд алдаа гарлаа. Дахин оролдоно уу!", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      } catch (error: any) {
         console.error("Error submitting form:", error);
       } finally {
-        setIsSubmitting(false); // Set isSubmitting back to false after submission
+        setIsSubmitting(false);
       }
     },
   });

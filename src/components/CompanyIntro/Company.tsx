@@ -16,7 +16,6 @@ const Company = () => {
       />
       <div className="grid">
         <div className="container mx-auto px-20 shadow-2xl  bg-white p-4 rounded-[15px] w-[100%] -mt-32 pt-10">
-          {/* <div className='bg-white shadow-2xl w-[100%] md:w-[70%] absolute top-[75%] z-10 rounded-[15px] p-4 md:p-20'> */}
           <CompanyIntro
             h1="Компанийн"
             h2="танилцуулга"
@@ -26,12 +25,11 @@ const Company = () => {
           <hr className="border-1.5 border-dotted border-gray-400 md:mb-[30px] mb-[100px]" />
           <Association />
         </div>
-        {/* <Lottery /> */}
-        {/* <div className='bg-[#27438C] shadow-2xl w-[100%] md:w-[70%] absolute top-[1530%] md:top-[273%] z-0 rounded-[15px] p-20 '> */}
+
         <div className="bg-[#27438C] container mx-auto px-20 -mt-3 -z-10 pt-20 rounded-b-[15px]">
           <Lottery />
         </div>
-        {/* <div className='absolute top-[2400%] md:top-[400%] w-[90%] md:w-[70%] z-20'> */}
+
         <div className=" container pt-20 mx-auto">
           <GraphContainer />
         </div>
