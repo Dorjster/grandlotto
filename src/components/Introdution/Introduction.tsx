@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Intro from "../Intro";
-import Status from "../Status";
+import Intro from "./Intro";
+import Status from "./Status";
 
 const Introduction = () => {
   return (

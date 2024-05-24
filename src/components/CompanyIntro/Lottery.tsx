@@ -1,4 +1,4 @@
-import { Lotteries } from "./_db";
+import { Lotteries } from "../_db";
 import Image from "next/image";
 
 const Lottery = () => {

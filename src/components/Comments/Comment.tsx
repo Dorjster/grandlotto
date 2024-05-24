@@ -23,7 +23,10 @@ const Comment = () => {
                 alt="background image"
                 width={560}
                 height={560}
-                className="w-full h-auto md:object-cover"
+                layout="responsive"
+                className={`w-full h-full md:object-cover ${
+                  index >= 1 ? "md:w-full" : ""
+                }`}
               />
 
               <div

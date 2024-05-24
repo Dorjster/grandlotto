@@ -22,7 +22,6 @@ const Finance = () => {
             p2=""
           />
         </div>
-        {/* <div className='w-[100%] md:w-[70%]  top-[230%] md:top-[140%] z-0 rounded-[15px] px-1 md:px-10 py-12'> */}
         <div className=" container mx-auto px-20 -mt-4 -z-10 pt-10 rounded-b-[15px]">
           <Plan />
         </div>
