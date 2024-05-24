@@ -1,201 +1,225 @@
 import React from "react";
 import { useFormik } from "formik";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface FormValues {
-  Name: string;
-  Phone: string;
-  Mail: string;
-  Company: string;
+  surName: string;
+  givenName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
   isChecked: boolean;
-  Cost?: string;
+  amount?: string;
 }
 
 const Registration = () => {
   const formik = useFormik<FormValues>({
     initialValues: {
-      Name: "",
-      Phone: "",
-      Mail: "",
-      Company: "",
+      surName: '',
+      givenName: '',
+      phoneNumber: '',
+      email: '',
+      companyName: '',
       isChecked: false,
-      Cost: "",
+      amount: ''
     },
     validationSchema: Yup.object({
-      Name: Yup.string()
-        .min(3, "3 аас их үсэгтэй байх ёстой")
-        .required("Нэр хоосон байна"),
-      Phone: Yup.string()
-        .matches(/^\d{8,}$/, "Хамгийн багадаа 8 оронтой байх ёстой")
-        .required("Дугаар хоосон байна"),
-      Mail: Yup.string()
-        .email("Хаягаа зөв бичнэ үү")
-        .required("Майл хоосон байна"),
-      Cost: Yup.string()
-        .matches(/^\d*$/, "Зөвхөн тоо бичнэ үү")
-        .required("Дүн хоосон байна"),
+      surName: Yup.string()
+        .min(3, '3 аас их үсэгтэй байх ёстой')
+        .required('Овог оруулна уу'),
+      givenName: Yup.string()
+        .min(3, '3 аас их үсэгтэй байх ёстой')
+        .required('Нэр оруулна уу'),
+      phoneNumber: Yup.string()
+        .matches(/^\d{8,}$/, 'Хамгийн багадаа 8 оронтой байх ёстой')
+        .required('Утасны дугаар оруулна уу'),
+      email: Yup.string()
+        .email('Цахим шуудан буруу')
+        .required('Цахим шуудан оруулна уу'),
+      amount: Yup.string()
+        .matches(/^\d*$/, 'Зөвхөн тоо бичнэ үү')
+        .required('Хэмжээ оруулна уу')
     }),
     onSubmit: async (values) => {
-      console.log(formik.errors);
-      console.log(values);
-
       try {
-        await emailjs.send(
-          "service_tn95blj",
-          "template_v73r0px",
-          {
-            message: [
-              `Mail: ${values.Mail} 
-             Name: ${values.Name}
-             Phone: ${values.Phone}
-             Company: ${values.Company}
-             Cost: ${values.Cost}`,
-            ],
+        await fetch('/api/submit', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
           },
-          "ZTCC8crOiemZtW0jY"
-        );
-        toast.success("Амжилттай илгээгдлээ!");
-        console.log("Form submitted successfully!");
+          body: JSON.stringify(values)
+        });
+        toast('Амжилттай илгээгдлээ!', {
+          position: 'bottom-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light'
+        });
         formik.resetForm();
       } catch (error) {
-        console.error("Error submitting form:", error);
+        console.error('Error submitting form:', error);
       }
-    },
+    }
   });
   return (
     <>
-      <header className="text-[10px] text-center py-[8px]">
+      <header className='text-[10px] text-center py-[8px]'>
         ГРАНД СИСТЕМС ХУВЬЦААНЫ УРЬДЧИЛСАН БҮРТГЭЛ
       </header>
       <form
-        id="emailContent"
+        id='emailContent'
         onSubmit={(event) => {
           event.preventDefault();
           formik.handleSubmit();
         }}
-        className="flex flex-col gap-[45px]"
+        className='flex flex-col gap-[25px]'
       >
-        <div className="flex flex-col mb-4">
-          <label htmlFor="name" className="text-[13px]">
-            Таны овог/нэр
+        <div className='flex flex-col mb-4'>
+          <label htmlFor='name' className='text-[13px]'>
+            Овог
           </label>
           <input
-            id="name"
-            name="Name"
-            type="text"
-            placeholder="Нэр"
+            id='name'
+            name='surName'
+            type='text'
+            placeholder=''
             onChange={formik.handleChange}
-            value={formik.values.Name}
-            className="bg-gray-200 p-2 rounded"
+            value={formik.values.surName}
+            className='bg-gray-200 p-2 rounded'
           />
-          {formik.touched.Name && formik.errors.Name ? (
-            <div className="text-red-500 mt-14 absolute text-[13px]">
-              {formik.errors.Name}
+          {formik.touched.surName && formik.errors.surName ? (
+            <div className='text-red-500 mt-16 absolute text-[13px]'>
+              {formik.errors.surName}
             </div>
           ) : null}
         </div>
 
-        <div className="flex flex-col mb-4">
-          <label htmlFor="mail" className="text-[13px]">
-            Таны цахим шуудан/майл хаяг
+        <div className='flex flex-col mb-4'>
+          <label htmlFor='name' className='text-[13px]'>
+            Нэр
           </label>
           <input
-            id="mail"
-            name="Mail"
-            type="email"
-            placeholder="Майл"
+            id='name'
+            name='givenName'
+            type='text'
+            placeholder=''
             onChange={formik.handleChange}
-            value={formik.values.Mail}
-            className="bg-gray-200 p-2 rounded"
+            value={formik.values.givenName}
+            className='bg-gray-200 p-2 rounded'
           />
-          {formik.touched.Mail && formik.errors.Mail ? (
-            <div className="text-red-500 mt-14 absolute text-[13px]">
-              {formik.errors.Mail}
+          {formik.touched.givenName && formik.errors.givenName ? (
+            <div className='text-red-500 mt-16 absolute text-[13px]'>
+              {formik.errors.givenName}
             </div>
           ) : null}
         </div>
 
-        <div className="flex flex-col mb-4">
-          <label htmlFor="phone" className="text-[13px]">
-            Таны утасны дугаар
+        <div className='flex flex-col mb-4'>
+          <label htmlFor='mail' className='text-[13px]'>
+            Цахим шуудан
           </label>
           <input
-            id="phone"
-            name="Phone"
-            type="text"
-            pattern="[0-9]*"
+            id='mail'
+            name='email'
+            type='email'
+            placeholder=''
             onChange={formik.handleChange}
-            value={formik.values.Phone}
-            className="bg-gray-200 p-2 rounded"
+            value={formik.values.email}
+            className='bg-gray-200 p-2 rounded'
           />
-          {formik.touched.Phone && formik.errors.Phone ? (
-            <div className="text-red-500 mt-14 absolute text-[13px]">
-              {formik.errors.Phone}
+          {formik.touched.email && formik.errors.email ? (
+            <div className='text-red-500 mt-16 absolute text-[13px]'>
+              {formik.errors.email}
             </div>
           ) : null}
         </div>
 
-        <div className="mb-4 flex items-center absolute top-[60%]">
+        <div className='flex flex-col mb-4'>
+          <label htmlFor='phone' className='text-[13px]'>
+            Утасны дугаар
+          </label>
           <input
-            id="isChecked"
-            name="isChecked"
-            type="checkbox"
+            id='phone'
+            name='phoneNumber'
+            type='text'
+            pattern='[0-9]*'
+            onChange={formik.handleChange}
+            value={formik.values.phoneNumber}
+            className='bg-gray-200 p-2 rounded'
+          />
+          {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+            <div className='text-red-500 mt-16 absolute text-[13px]'>
+              {formik.errors.phoneNumber}
+            </div>
+          ) : null}
+        </div>
+
+        <div className='mb-4 flex items-center  top-[60%]'>
+          <input
+            id='isChecked'
+            name='isChecked'
+            type='checkbox'
             onChange={formik.handleChange}
             checked={formik.values.isChecked}
           />
-          <label htmlFor="isChecked" className="text-[13px] ml-[4px] ">
+          <label htmlFor='isChecked' className='text-[13px] ml-[4px] '>
             Үнэт цаасны компанид данстай эсэх
           </label>
         </div>
 
         {formik.values.isChecked && (
-          <div className="flex flex-col mb-4 absolute top-[63%]">
-            <label htmlFor="company" className="text-[13px]">
-              Компаны нэр
+          <div className='flex flex-col mb-4  top-[63%]'>
+            <label htmlFor='company' className='text-[13px]'>
+              Компанийн нэр
             </label>
             <input
-              id="company"
-              name="Company"
-              type="text"
+              id='company'
+              name='companyName'
+              type='text'
               onChange={formik.handleChange}
-              value={formik.values.Company}
-              className="bg-gray-200 p-2 rounded"
+              value={formik.values.companyName}
+              className='bg-gray-200 p-2 rounded'
             />
           </div>
         )}
 
-        <div className="flex flex-col mt-[35px]">
-          <label htmlFor="cost" className="text-[13px]">
+        <div className='flex flex-col mt-[35px]'>
+          <label htmlFor='cost' className='text-[13px]'>
             Хөрөнгө оруулахаар сонирхож буй хэмжээ
           </label>
           <input
-            id="cost"
-            name="Cost"
-            type="text"
-            pattern="[0-9]*"
+            id='cost'
+            name='amount'
+            type='text'
+            pattern='[0-9]*'
             onChange={formik.handleChange}
-            value={formik.values.Cost}
-            className="bg-gray-200 p-2 rounded"
+            value={formik.values.amount}
+            className='bg-gray-200 p-2 rounded'
           />
-          {formik.touched.Cost && formik.errors.Cost ? (
-            <div className="text-red-500 mt-14 absolute text-[13px]">
-              {formik.errors.Cost}
+          {formik.touched.amount && formik.errors.amount ? (
+            <div className='text-red-500 mt-16 absolute text-[13px]'>
+              {formik.errors.amount}
             </div>
           ) : null}
         </div>
 
         <button
-          type="submit"
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          type='submit'
+          className='bg-blue-500 text-white font-bold py-2 px-4 rounded'
         >
           Илгээх
         </button>
       </form>
       <ToastContainer
-        position="bottom-center"
+        position='bottom-center'
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}

@@ -35,6 +35,7 @@ const Header = () => {
 
   const handleGet = (data: string) => {
     setLabel(data);
+
     setIsMenuOpen(false);
   };
 

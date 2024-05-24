@@ -5,14 +5,14 @@ import Status from "../Status";
 
 const Introduction = () => {
   return (
-    <div className="w-full h-screen relative">
+    <div className='w-full h-screen relative'>
       <Image
-        src="/image 12.svg"
-        layout="fill"
-        alt="bg"
-        className="object-cover"
+        src='/image1.png'
+        layout='fill'
+        alt='bg'
+        className='object-cover'
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className='absolute inset-0 flex flex-col items-center justify-center'>
         <Intro />
 
         <Status />
