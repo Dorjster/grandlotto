@@ -4,7 +4,7 @@ import Plan from "./Plan";
 
 const Finance = () => {
   return (
-    <div className="pt-20 relative z-0">
+    <div className="pt-20  z-0">
       <Image
         src="image 29.svg"
         width={1}
@@ -12,9 +12,6 @@ const Finance = () => {
         alt="bg2"
         className="w-full "
       />
-      {/* <div className=' flex justify-center items-center '>
-        <div className='bg-white shadow-2xl w-[100%] md:w-[70%] absolute top-[83%] z-10 rounded-[15px] p-4 md:p-20'>
-          {' '} */}
 
       <div className="grid">
         <div className="container mx-auto px-20 shadow-2xl  bg-white p-4 rounded-[15px] w-[100%] -mt-32 pt-10">

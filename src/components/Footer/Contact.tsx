@@ -12,7 +12,6 @@ const Contact = () => {
             key={index}
             className="flex items-center border-l-4 border-[#1DAFEC] border-solid pl-4"
           >
-            {/* <div className='w-[4px] bg-[#1DAFEC] h-[95%] mr-[30px] flex '></div> */}
             <div className="w-[full] flex flex-col gap-[8px]">
               <p className="text-black text-[15px] font-[600] w-[full]">
                 {el.company}
