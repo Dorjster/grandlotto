@@ -2,8 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useLabelData } from "./Context/Label";
-import { IoIosMenu } from "react-icons/io";
-// import { useRouter } from 'next/router';
+import { IoIosMenu } from 'react-icons/io';
 
 type NavigationItem = {
   label: string;
@@ -18,7 +17,6 @@ const navigationItems: NavigationItem[] = [
 ];
 
 const Header = () => {
-  // const router = useRouter();
   const { setLabel } = useLabelData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -38,15 +36,7 @@ const Header = () => {
   const handleGet = (data: string) => {
     setLabel(data);
     setIsMenuOpen(false);
-  //   router.push(
-  //     {
-  //       pathname: '/products',
-  //       query: { sortBy: 'price' }
-  //     },
-  //     undefined,
-  //     { shallow: true }
-  //   );
-  // };
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
