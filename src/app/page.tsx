@@ -1,12 +1,12 @@
 "use client";
-import Design from "@/components/Bussiness/Design";
-import Comment from "@/components/Comments/Comment";
-import Company from "@/components/CompanyIntro/Company";
-import { useLabelData } from "@/components/Context/Label";
-import Finance from "@/components/Finance/Finance";
-import Footer from "@/components/Footer/Footer";
-import Introduction from "@/components/Introdution/Introduction";
-import React, { useEffect, useRef } from "react";
+import Design from '@/components/Bussiness/Design';
+import Comment from '@/components/Comments/Comment';
+import Company from '@/components/CompanyIntro/Company';
+import { useLabelData } from '@/components/Context/Label';
+import Finance from '@/components/Finance/Finance';
+import Footer from '@/components/Footer/Footer';
+import Introduction from '@/components/Introdution/Introduction';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 const Page = () => {
   const { label } = useLabelData();
@@ -21,32 +21,35 @@ const Page = () => {
     if (ref.current) {
       window.scrollTo({
         top: ref.current.offsetTop,
-        behavior: "smooth",
+        behavior: 'smooth'
       });
     }
   };
-
-  useEffect(() => {
+  const goToSection = useCallback(() => {
     switch (label) {
-      case "Танилцуулга":
+      case 'introduction':
         scrollToRef(introRef);
         break;
-      case "Загвар":
+      case 'biznesplan':
         scrollToRef(designRef);
         break;
-      case "Зах зээл":
+      case 'market':
         scrollToRef(financeRef);
         break;
-      case "Сэтгэгдэл":
+      case 'comment':
         scrollToRef(commentRef);
         break;
-      case "Захиалга":
+      case 'order':
         scrollToRef(footerRef);
         break;
       default:
         break;
     }
   }, [label]);
+
+  useEffect(() => {
+    goToSection();
+  }, [goToSection]);
 
   return (
     <div>

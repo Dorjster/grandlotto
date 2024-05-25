@@ -1,23 +1,27 @@
 "use client";
-import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { useLabelData } from "./Context/Label";
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import { useLabelData } from './Context/Label';
 import { IoIosMenu } from 'react-icons/io';
+import { useRouter } from 'next/router';
 
 type NavigationItem = {
+  id: number;
   label: string;
+  name: string;
 };
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Танилцуулга' },
-  { label: 'Загвар' },
-  { label: 'Зах зээл' },
-  { label: 'Сэтгэгдэл' },
-  { label: 'Захиалга' }
+  { id: 1, name: 'Танилцуулга', label: 'introduction' },
+  { id: 2, name: 'Загвар', label: 'biznesplan' },
+  { id: 3, name: 'Зах зээл', label: 'market' },
+  { id: 4, name: 'Сэтгэгдэл', label: 'comment' },
+  { id: 5, name: 'Захиалга', label: 'order' }
 ];
 
 const Header = () => {
   const { setLabel } = useLabelData();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
@@ -33,8 +37,8 @@ const Header = () => {
     };
   }, []);
 
-  const handleGet = (data: string) => {
-    setLabel(data);
+  const handleGet = (label: string) => {
+    setLabel(label);
     setIsMenuOpen(false);
   };
 
@@ -57,26 +61,26 @@ const Header = () => {
         </button>
 
         <nav className='hidden md:flex md:gap-[15px]'>
-          {navigationItems.map((item, index) => (
+          {navigationItems.map((item) => (
             <button
               onClick={() => handleGet(item.label)}
-              key={index}
+              key={item.id}
               className='text-black hover:text-blue-700'
             >
-              {item.label}
+              {item.name}
             </button>
           ))}
         </nav>
 
         {isMenuOpen && windowWidth <= 768 && (
           <nav className='fixed top-[92px] left-0 w-full bg-white/90 p-4 flex flex-col space-y-4 md:hidden'>
-            {navigationItems.map((item, index) => (
+            {navigationItems.map((item) => (
               <button
                 onClick={() => handleGet(item.label)}
-                key={index}
+                key={item.id}
                 className='text-black hover:text-blue-700'
               >
-                {item.label}
+                {item.name}
               </button>
             ))}
           </nav>
