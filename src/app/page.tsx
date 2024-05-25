@@ -1,15 +1,16 @@
 "use client";
+import React, { useCallback, useEffect, useRef } from 'react';
+import { useSearchParams, usePathname } from 'next/navigation';
 import Design from '@/components/Bussiness/Design';
 import Comment from '@/components/Comments/Comment';
 import Company from '@/components/CompanyIntro/Company';
-import { useLabelData } from '@/components/Context/Label';
 import Finance from '@/components/Finance/Finance';
 import Footer from '@/components/Footer/Footer';
 import Introduction from '@/components/Introdution/Introduction';
-import React, { useCallback, useEffect, useRef } from 'react';
 
 const Page = () => {
-  const { label } = useLabelData();
+  const searchParams = useSearchParams();
+  const section = searchParams?.get('s');
 
   const designRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
@@ -25,31 +26,32 @@ const Page = () => {
       });
     }
   };
-  const goToSection = useCallback(() => {
-    switch (label) {
-      case 'introduction':
+  const checkQueryString = useCallback(() => {
+    switch (section) {
+      case 'intro':
         scrollToRef(introRef);
         break;
-      case 'biznesplan':
+      case 'plan':
         scrollToRef(designRef);
         break;
       case 'market':
         scrollToRef(financeRef);
         break;
-      case 'comment':
+      case 'comm':
         scrollToRef(commentRef);
         break;
       case 'order':
         scrollToRef(footerRef);
         break;
       default:
+        scrollToRef(introRef);
         break;
     }
-  }, [label]);
+  }, [section]);
 
   useEffect(() => {
-    goToSection();
-  }, [goToSection]);
+    checkQueryString();
+  }, [checkQueryString]);
 
   return (
     <div>
