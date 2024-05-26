@@ -20,72 +20,66 @@ const Registration = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formik = useFormik<FormValues>({
     initialValues: {
-      surName: "",
-      givenName: "",
-      phoneNumber: "",
-      email: "",
-      companyName: "",
+      surName: '',
+      givenName: '',
+      phoneNumber: '',
+      email: '',
+      companyName: '',
       isChecked: false,
-      amount: "",
+      amount: ''
     },
     validationSchema: Yup.object({
-      surName: Yup.string()
-        .min(3, "3 аас их үсэгтэй байх ёстой")
-        .required("Овог оруулна уу"),
       givenName: Yup.string()
-        .min(3, "3 аас их үсэгтэй байх ёстой")
-        .required("Нэр оруулна уу"),
+        .min(3, '3 аас их үсэгтэй байх ёстой')
+        .required('Нэр оруулна уу'),
       phoneNumber: Yup.string()
-        .matches(/^\d{8,}$/, "Хамгийн багадаа 8 оронтой байх ёстой")
-        .required("Утасны дугаар оруулна уу"),
-      email: Yup.string()
-        .email("Цахим шуудан буруу")
-        .required("Цахим шуудан оруулна уу"),
+        .matches(/^\d{8,}$/, 'Хамгийн багадаа 8 оронтой байх ёстой')
+        .required('Утасны дугаар оруулна уу'),
       amount: Yup.string()
-        .matches(/^\d*$/, "Зөвхөн тоо бичнэ үү")
-        .required("Хэмжээ оруулна уу"),
+        .matches(/^\d*$/, 'Зөвхөн тоо бичнэ үү')
+        .required('Хэмжээ оруулна уу')
     }),
     onSubmit: async (values) => {
       try {
         setIsSubmitting(true);
-        const response = await fetch("/api/submit", {
-          method: "POST",
+        const response = await fetch('/api/submit', {
+          method: 'POST',
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify(values)
         });
         if (response.ok === true) {
-          toast.success("Амжилттай илгээгдлээ!", {
-            position: "bottom-right",
+          toast.success('Амжилттай илгээгдлээ!', {
+            position: 'bottom-right',
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "light",
+            theme: 'light'
           });
           formik.resetForm();
         } else {
-          toast.error("Илгээхэд алдаа гарлаа. Дахин оролдоно уу!", {
-            position: "bottom-right",
+          toast.error('Илгээхэд алдаа гарлаа. Дахин оролдоно уу!', {
+            position: 'bottom-right',
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "light",
+            theme: 'light'
           });
         }
       } catch (error: any) {
-        console.error("Error submitting form:", error);
+        console.error('Error submitting form:', error);
       } finally {
         setIsSubmitting(false);
       }
-    },
+    }
   });
   return (
     <>
